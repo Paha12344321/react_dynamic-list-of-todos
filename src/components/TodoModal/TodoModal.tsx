@@ -3,6 +3,7 @@ import { Loader } from '../Loader';
 import { User } from '../../types/User';
 import { getUser } from '../../api';
 import { Todo } from '../../types/Todo';
+import cn from 'classnames';
 
 interface Props {
   todo: Todo;
@@ -53,9 +54,9 @@ export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
 
             <p className="block" data-cy="modal-user">
               {todo.completed ? (
-                <strong className="has-text-success">Done</strong>
+                <strong className={cn('has-text-success')}>Done</strong>
               ) : (
-                <strong className="has-text-danger">Planned</strong>
+                <strong className={cn('has-text-danger')}>Planned</strong>
               )}
               {' by '}
               <a href={`mailto:${user.email}`}>{user.name}</a>
